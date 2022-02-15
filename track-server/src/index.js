@@ -1,3 +1,4 @@
+require("./models/User");
 const express = require("express");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes");
