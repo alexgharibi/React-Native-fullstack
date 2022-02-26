@@ -2,6 +2,7 @@ require("./models/User");
 const express = require("express");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes");
+const requireAuth = require("./middlewares/requireAuth");
 
 const mongoose = require("mongoose");
 
@@ -22,8 +23,8 @@ mongoose.connection.on("error", (err) => {
   console.error("err", err);
 });
 
-app.get("/", (req, res) => {
-  res.send("hi there");
+app.get("/", requireAuth, (req, res) => {
+  res.send(`Your emai;: ${req.user.email}`);
 });
 
 app.listen(3000, () => {
