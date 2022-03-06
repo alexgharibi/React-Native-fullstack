@@ -28,7 +28,16 @@ const signup = (dispatch) => {
 };
 
 const signin = (dispatch) => {
-  return ({ email, password }) => {};
+  return async ({ email, password }) => {
+    try {
+      const response = await trackerApi.post("/signin", { email, password });
+      await AsyncStorage.setItem("token", response.data.token);
+      dispatch({ type: "signup", payload: response.data.token });
+      navigate("TrackList");
+    } catch (err) {
+      dispatch({ type: "add_error", payload: "Something went wrong" });
+    }
+  };
 };
 
 const signout = (dispatch) => {
