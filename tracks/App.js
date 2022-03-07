@@ -10,8 +10,10 @@ import TrackDetailScreen from "./src/screens/TrackDetailScreen";
 import TrackListScreen from "./src/screens/TrackListScreen";
 import { Provider as AuthProvder } from "./src/context/AuthContext";
 import { setNavigator } from "./src/navigationRef";
+import Loading from "./src/screens/Loading";
 
 const switchNavigator = createSwitchNavigator({
+  ResolveAuth: Loading,
   loginFlow: createStackNavigator({
     Signup: SignupScreen,
     Signin: SigninScreen,

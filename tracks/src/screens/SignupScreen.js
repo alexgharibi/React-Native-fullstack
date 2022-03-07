@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { StyleSheet, View, TouchableOpacity } from "react-native";
 import AuthForm from "../components/AuthForm";
 import NavLink from "../components/NavLink";
