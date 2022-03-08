@@ -1,8 +1,15 @@
 import React from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-navigation";
+import { Text } from "react-native-elements";
 
 const TrackCreateScreen = () => {
-  return <Text style={{ fontSize: 48 }}>TrackCreateScreen</Text>;
+  return (
+    <SafeAreaView forceInset={{ top: "always" }}>
+      <Text h2>Create a Track</Text>
+      <Map />
+    </SafeAreaView>
+  );
 };
 
 const styles = StyleSheet.create({});
