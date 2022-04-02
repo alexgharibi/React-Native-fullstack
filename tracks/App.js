@@ -12,7 +12,7 @@ import { Provider as AuthProvder } from "./src/context/AuthContext";
 import { setNavigator } from "./src/navigationRef";
 import Loading from "./src/screens/Loading";
 import { Provider as LocationProvider } from "./src/context/LocationContext";
-
+import { Provider as TrackProvider } from "./src/context/TrackContext";
 const switchNavigator = createSwitchNavigator({
   ResolveAuth: Loading,
   loginFlow: createStackNavigator({
@@ -35,11 +35,13 @@ export default () => {
   return (
     <LocationProvider>
       <AuthProvder>
-        <App
-          ref={(navigator) => {
-            setNavigator(navigator);
-          }}
-        />
+        <TrackProvider>
+          <App
+            ref={(navigator) => {
+              setNavigator(navigator);
+            }}
+          />
+        </TrackProvider>
       </AuthProvder>
     </LocationProvider>
   );
